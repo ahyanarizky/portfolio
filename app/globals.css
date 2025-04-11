@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --neon-blue: #00f3ff;
+  --dark-gray: #1a1a1a;
+  --grid-color: rgba(255, 255, 255, 0.05);
+}
+
+body {
+  background-color: var(--dark-gray);
+  color: white;
+  background-image: 
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.neon-border {
+  border: 1px solid var(--neon-blue);
+  box-shadow: 0 0 10px var(--neon-blue);
+}
+
+.hover-glow {
+  transition: all 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 15px var(--neon-blue);
+  transform: translateY(-2px);
+}
+
+.section-title {
+  @apply text-3xl font-bold mb-8 text-[var(--neon-blue)];
+}
+
+.card {
+  @apply bg-gray-800 p-6 rounded-lg hover-glow;
+}
+
+.btn {
+  @apply px-4 py-2 rounded-md transition-all duration-300 hover-glow;
+}
+
+.btn-primary {
+  @apply btn bg-[var(--neon-blue)] text-black font-semibold;
+}
+
+.container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+} 
