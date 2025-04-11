@@ -22,7 +22,7 @@ export default function Navigation() {
       <div className="flex flex-col items-center gap-4">
         <motion.button
           onClick={scrollToTop}
-          className="p-3 bg-gray-800 rounded-full hover-glow"
+          className="p-3 bg-surface rounded-full hover-glow text-primary"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
@@ -33,7 +33,7 @@ export default function Navigation() {
             <motion.a
               key={section.id}
               href={`#${section.id}`}
-              className="p-3 bg-gray-800 rounded-full hover-glow text-sm"
+              className="p-3 bg-surface rounded-full hover-glow text-sm nav-link"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >

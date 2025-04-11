@@ -3,23 +3,92 @@
 @tailwind utilities;
 
 :root {
-  --neon-blue: #00f3ff;
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --secondary: #64748b;
+  --background: #0f172a;
+  --surface: #1e293b;
+  --surface-hover: #334155;
+  --text: #f8fafc;
+  --text-secondary: #94a3b8;
+  --neon-blue: #00f7ff;
   --dark-gray: #1a1a1a;
-  --grid-color: rgba(255, 255, 255, 0.05);
 }
 
-body {
-  background-color: var(--dark-gray);
-  color: white;
-  background-image: 
-    linear-gradient(var(--grid-color) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-  background-size: 20px 20px;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-text min-h-screen;
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(37, 99, 235, 0.1) 0%, transparent 50%);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
 }
 
-.neon-border {
-  border: 1px solid var(--neon-blue);
-  box-shadow: 0 0 10px var(--neon-blue);
+@layer components {
+  .section-title {
+    @apply text-3xl font-bold mb-8 text-[var(--neon-blue)] relative inline-block;
+  }
+
+  .section-title::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-1 bg-[var(--neon-blue)];
+  }
+
+  .card {
+    @apply bg-surface rounded-lg p-6 shadow-lg transition-all duration-300;
+  }
+
+  .card:hover {
+    @apply shadow-[0_0_15px_var(--neon-blue)] -translate-y-0.5;
+  }
+
+  .btn {
+    @apply px-6 py-3 rounded-lg font-medium transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply bg-[var(--neon-blue)] text-black font-semibold hover:shadow-[0_0_15px_var(--neon-blue)] hover:-translate-y-0.5;
+  }
+
+  .btn-secondary {
+    @apply bg-surface text-text hover:bg-surface-hover;
+  }
+
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+  }
+
+  .nav-link {
+    @apply text-text-secondary hover:text-text transition-colors duration-300;
+  }
+
+  .neon-border {
+    @apply border border-[var(--neon-blue)] shadow-[0_0_10px_var(--neon-blue)];
+  }
 }
 
 .hover-glow {
